@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+</head>
+
+<body>
+   
+    <h1>Student data</h1>
+    <div>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="marks" placeholder="Enter marks">
+        <button onclick="addStudent()">Add Student</button>
+    </div>
+    <div>
+        <h2>Student List</h2>
+        <table border="1" id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                    <th>average marsks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student rows will be added here -->
+                 
+
+
+
+                    
+            <tbody>
+                
+            </tbody>
+        </table>
+        <script>
+
+        function addStudent() {
+            const name = document.getElementById('name').value;
+            const marks = parseFloat(document.getElementById('marks').value);
+            if (name && !isNaN(marks)) {
+                const table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+                const newRow = table.insertRow();
+                const nameCell = newRow.insertCell(0);
+                const marksCell = newRow.insertCell(1);
+                const avgCell = newRow.insertCell(2);
+
+                nameCell.textContent = name;
+                marksCell.textContent = marks;
+                avgCell.textContent = (marks + 5); 
+
+                document.getElementById('name').value = '';
+                document.getElementById('marks').value = '';
+                document.getElementById('Average Marks').focus();
+            } else {
+                alert('Please enter valid name and marks.');
+            }
+        }
+    </script>
+</body>
+</html>
